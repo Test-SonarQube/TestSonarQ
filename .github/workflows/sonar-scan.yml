@@ -15,10 +15,10 @@ jobs:
       with:
         distribution: 'adopt'
         java-version: '11'
+    - name: List Files in Sonarqube Directory
+      run: ls -la Sonarqube
     - name: Make Gradle Wrapper Executable
       run: chmod +x Sonarqube/gradlew
-    - name: List Files
-      run: ls -la Sonarqube
     - name: Build with Gradle
       run: cd Sonarqube && ./gradlew build sonarqube --info
       env:
