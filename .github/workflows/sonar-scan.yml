@@ -16,10 +16,10 @@ jobs:
         distribution: 'adopt'
         java-version: '11'
     - name: Make Gradle Wrapper Executable
-      run: chmod +x MyWebApp/gradlew
+      run: chmod +x Sonarqube/gradlew
     - name: List Files
-      run: ls -la MyWebApp
+      run: ls -la Sonarqube
     - name: Build with Gradle
-      run: cd MyWebApp && ./gradlew build sonarqube --info
+      run: cd Sonarqube && ./gradlew build sonarqube --info
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
