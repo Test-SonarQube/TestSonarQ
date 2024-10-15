@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Sonarqube.iml" filepath="$PROJECT_DIR$/Sonarqube.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Sonarqube.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Sonarqube.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Sonarqube.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Sonarqube.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/TestSonarQ.iml" filepath="$PROJECT_DIR$/.idea/TestSonarQ.iml" />
     </modules>
   </component>

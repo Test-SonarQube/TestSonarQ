@@ -16,7 +16,7 @@ jobs:
         distribution: 'adopt'
         java-version: '11'
     - name: Build with Gradle
-      run: ./gradlew build
+      run: cd Sonarqube && ./gradlew build
     - name: SonarQube Scan
       uses: sonarsource/sonarqube-scan-action@master
       with:
