@@ -1,5 +1,4 @@
 name: CI/CD workflow for Gradle Build and Sonar Code scan
-runs-on: self-hosted
 
 on:
   push:
@@ -12,7 +11,7 @@ on:
 jobs:
   build:
     name: Build and analyze
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
