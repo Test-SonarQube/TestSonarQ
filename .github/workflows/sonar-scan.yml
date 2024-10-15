@@ -1,5 +1,6 @@
 name: CI/CD workflow for Gradle Build and Sonar Code scan
-runs_on: self-hosted
+runs-on: self-hosted
+
 on:
   push:
     branches:
