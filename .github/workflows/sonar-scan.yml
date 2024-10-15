@@ -1,8 +1,10 @@
 name: CI/CD workflow for Gradle Build and Sonar Code scan
+runs_on: self-hosted
 on:
   push:
     branches:
-      - main
+      - chore/ro-ref/local-change-sonar
+
   pull_request:
     types: [opened, synchronize, reopened]
   workflow_dispatch:
@@ -18,19 +20,8 @@ jobs:
         with:
           java-version: 11
           distribution: 'zulu' # Alternative distribution options are available
-      - name: Cache SonarCloud packages
-        uses: actions/cache@v2
-        with:
-          path: ~/.sonar/cache
-          key: ${{ runner.os }}-sonar
-          restore-keys: ${{ runner.os }}-sonar
-      - name: Cache Gradle packages
-        uses: actions/cache@v2
-        with:
-          path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
-          restore-keys: ${{ runner.os }}-gradle
-      - name: Build and analyze
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@2.1.0 # Ex: v2.1.0, See the latest version at https://github.com/marketplace/actions/official-sonarqube-scan
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: ./gradlew build sonar --info
+            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+            SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
