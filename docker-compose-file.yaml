@@ -1,0 +1,15 @@
+services:
+  static-site:
+    image: sonarqube:10.6-community
+    ports:
+      - "9000:9000"
+    #restart: always
+  ngrok:
+    image: ngrok/ngrok:latest
+    command:
+      - "http"
+      - "http://static-site:9000"
+    environment:
+      NGROK_AUTHTOKEN: 2nkW1KrKbzk15AFM96AtC4xN0dz_5EZT8FdFLzfwyiH55SKDj
+    ports:
+      - 4040:4040
